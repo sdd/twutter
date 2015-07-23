@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Twutter</title>
+</head>
+<body ng-app="app" class="container">
+
+<nav ng-controller="LoginController" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Twutter</a>
+        </div>
+
+        <div ng-if="loggedIn">
+            <div ng-controller="ProfileController" class="btn navbar-btn avatar">
+                <img ng-src="{{getProfileImage()}}"/>
+            </div>
+            <a class="btn btn-primary navbar-btn" ng-click="openTweetDialogue()">Tweet</a>
+            <a class="btn btn-primary navbar-btn" ng-click="logout()">
+                <span class="glyphicon glyphicon-log-out"></span>
+                Log Out
+            </a>
+        </div>
+        <div ng-if="!loggedIn">
+            <a class="btn btn-primary navbar-btn" ng-click="login('twitter')">
+                <span class="glyphicon glyphicon-log-in"></span>
+                Sign in via Twitter
+            </a>
+        </div>
+
+
+    </div>
+</nav>
+
+<div ng-controller="LoginController" ng-show="!loggedIn" class="jumbotron pageTop" id="intro">
+    <h2>Welcome to Twutter.</h2>
+    <input ng-show="status" class="form-control" id="disabledInput" type="text" value="{{status}}" disabled>
+</div>
+
+<div class="row pageTop">
+
+    <div class="col-md-8 col-sm-12">
+        <div ng-controller="TimelineController" ng-show="timeline.length" class="whitePanel">
+            <ul class="timeline">
+                <li ng-repeat="tweet in timeline">
+                    <img class="avatar tweet" ng-src="{{tweet.user.profile_image_url_https}}" />
+                    <h3>{{ tweet.user.name }}<small>@{{ tweet.user.screen_name }} {{ tweet.created_at | timeAgo }}</small></h3>
+                    <p>{{ tweet.text }}</p>
+
+                    <dl>
+                        <dt><span class="glyphicon glyphicon-retweet"></span></dt>
+                        <dd>{{ tweet.retweet_count }}</dd>
+                        <dt><span class="glyphicon glyphicon-star"></span></dt>
+                        <dd>{{ tweet.favorite_count }}</dd>
+                    </dl>
+
+                </li>
+                <li class="readMore">Read More...</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-12">
+        <div ng-controller="ProfileController" ng-show="!!profile.username" class="profile whitePanel">
+            <div class="row">
+                <div class="col-sm-4">
+                    <img ng-src="{{getProfileImage('bigger')}}"/>
+                </div>
+                <div class="col-sm-8">
+                    <p>{{profile.displayName}}</p>
+                    <p>@{{ profile.username }}</p>
+                    <p>Tweets: {{ profile._json.statuses_count }}</p>
+                    <p>Following: {{ profile._json.friends_count }}</p>
+                    <p>Followers: {{ profile._json.followers_count }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/public/bundle.js"></script>
+</body>
+</html>
