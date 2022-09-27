@@ -47,7 +47,7 @@
     "lodash": "^4.17.11",
     "method-override": "~2.2.0",
     "moment": "^2.10.3",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "node-twitter-api": "^1.6.0",
     "optimist": "~0.6.1",
     "passport-twitter": "^1.0.3",
