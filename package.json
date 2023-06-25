@@ -57,7 +57,7 @@
     "seneca": "https://github.com/sc0ttyd/seneca/archive/master.tar.gz",
     "seneca-bluebird": "https://github.com/sc0ttyd/seneca-bluebird/archive/master.tar.gz",
     "seneca-jsonrest-api": "~0.3.1",
-    "style-loader": "^0.12.3",
+    "style-loader": "^0.23.0",
     "url-loader": "^0.5.6"
   },
   "devDependencies": {
