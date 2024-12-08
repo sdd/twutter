@@ -20,7 +20,7 @@
     "alt-user-seneca": "https://github.com/sc0ttyd/alt-user-seneca/archive/master.tar.gz",
     "angular": "^1.4.3",
     "angular-route": "^1.4.3",
-    "bluebird": "^2.9.26",
+    "bluebird": "^3.0.0",
     "body-parser": "~1.9.0",
     "bootstrap-sass": "^3.3.5",
     "bootstrap-sass-loader": "^1.0.6",
