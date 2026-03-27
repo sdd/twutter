@@ -21,7 +21,7 @@
     "angular": "^1.4.3",
     "angular-route": "^1.4.3",
     "bluebird": "^2.9.26",
-    "body-parser": "~1.9.0",
+    "body-parser": "~1.20.0",
     "bootstrap-sass": "^3.3.5",
     "bootstrap-sass-loader": "^1.0.6",
     "config-layered": "^2.0.0",
